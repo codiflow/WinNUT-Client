@@ -555,6 +555,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5C99D3FB8E4CBB81209F637E049611DF"
+        "OwnerKey" = "8:_D20AE0448FA041DB8F5DD65C05E507C1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5CDEF598B7A95AF327FA51A3488FAD54"
         "OwnerKey" = "8:_D20AE0448FA041DB8F5DD65C05E507C1"
         "MsmSig" = "8:_UNDEFINED"
@@ -3081,12 +3087,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CB7240238DDFA669FCF3046E48D0A447"
-        "OwnerKey" = "8:_D20AE0448FA041DB8F5DD65C05E507C1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CEF0BD4A629B7E0FEAB50EBA269DE5AE"
         "OwnerKey" = "8:_CAA83D70E80C09C89E42A34FA8F23665"
         "MsmSig" = "8:_UNDEFINED"
@@ -4906,6 +4906,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5C99D3FB8E4CBB81209F637E049611DF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E8BB0E2A241C1023B684B55FEB5B745F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -4919,12 +4925,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D20AE0448FA041DB8F5DD65C05E507C1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CB7240238DDFA669FCF3046E48D0A447"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -8537,6 +8537,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5C99D3FB8E4CBB81209F637E049611DF"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:WinNUT-Client_Common, Version=2.3.8965.27920, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_5C99D3FB8E4CBB81209F637E049611DF"
+                    {
+                    "Name" = "8:WinNUT-Client_Common.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:WinNUT-Client_Common.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7A1917372AF14D75845D775AAEB7CD48"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5CDEF598B7A95AF327FA51A3488FAD54"
             {
             "AssemblyRegister" = "3:1"
@@ -11418,37 +11449,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CB7240238DDFA669FCF3046E48D0A447"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WinNUT-Client_Common, Version=2.3.8892.28503, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_CB7240238DDFA669FCF3046E48D0A447"
-                    {
-                    "Name" = "8:WinNUT-Client_Common.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:WinNUT-Client_Common.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_7A1917372AF14D75845D775AAEB7CD48"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CEF0BD4A629B7E0FEAB50EBA269DE5AE"
             {
             "AssemblyRegister" = "3:1"
@@ -12776,15 +12776,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WinNUT Client"
-        "ProductCode" = "8:{5752347D-1B68-4662-82BE-8EFBB97E9DB0}"
-        "PackageCode" = "8:{8189EDA7-430E-4E35-9308-B31EF6B518D0}"
+        "ProductCode" = "8:{0C2A0FDE-2836-4944-99D1-6977AFD17195}"
+        "PackageCode" = "8:{F4F5BEC3-0786-478D-8644-91B9ADC93132}"
         "UpgradeCode" = "8:{7EA17151-76E7-4E29-8F6A-621C1B4144C2}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.3.8892"
+        "ProductVersion" = "8:2.3.8965"
         "Manufacturer" = "8:NUTDotNet"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/nutdotnet/WinNUT-Client/discussions"
@@ -13392,7 +13392,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_36B595BD31DB4EADBA77A31877C02F2F"
             {
-            "SourcePath" = "8:..\\WinNUT-Client_Common\\obj\\PreRelease\\WinNUT-Client_Common.dll"
+            "SourcePath" = "8:..\\WinNUT-Client_Common\\obj\\Release\\WinNUT-Client_Common.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7A1917372AF14D75845D775AAEB7CD48"
@@ -13448,7 +13448,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D20AE0448FA041DB8F5DD65C05E507C1"
             {
-            "SourcePath" = "8:..\\WinNUT-Client\\obj\\PreRelease\\WinNUT-Client.exe"
+            "SourcePath" = "8:..\\WinNUT-Client\\obj\\Release\\WinNUT-Client.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_7A1917372AF14D75845D775AAEB7CD48"
