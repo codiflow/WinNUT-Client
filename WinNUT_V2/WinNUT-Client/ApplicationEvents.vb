@@ -45,7 +45,7 @@ Namespace My
             Init_Globals()
             LogFile.LogTracing(String.Format("{0} v{1} starting up.", My.Application.Info.ProductName, My.Application.Info.Version),
                            LogLvl.LOG_NOTICE, Me)
-            ' LogFile.LogTracing($"DataDirectory: { ApplicationDeployment.CurrentDeployment.DataDirectory }", LogLvl.LOG_NOTICE, Me)
+            LogFile.LogTracing($"DataDirectory: { DataDirectory }", LogLvl.LOG_NOTICE, Me)
 
             ' If first run indicated by Settings, attempt upgrade in case older version is present.
             ' Only necessary when deploying MSI. Remove once using pure ClickOnce.

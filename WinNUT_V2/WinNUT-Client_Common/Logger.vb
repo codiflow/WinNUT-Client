@@ -16,16 +16,6 @@ Imports Microsoft.VisualBasic.Logging
 Public Class Logger
 #Region "Constants/Shared"
     Private Const LOG_FILE_CREATION_SCHEDULE = LogFileCreationScheduleOption.Daily
-
-    ' Set TEST_RELEASE_DIRS in the custom compiler constants dialog for file storage to behave like release.
-#If DEBUG AndAlso Not TEST_RELEASE_DIRS Then
-    Private Shared ReadOnly DEFAULT_DATETIMEFORMAT = DateTimeFormatInfo.InvariantInfo
-    Private Shared ReadOnly DEFAULT_LOCATION = Application.StartupPath
-#Else
-    Private Shared ReadOnly DEFAULT_DATETIMEFORMAT = DateTimeFormatInfo.CurrentInfo
-    Private Shared ReadOnly DEFAULT_LOCATION = Application.LocalUserAppDataPath
-#End If
-
     Private ReadOnly TEventCache As New TraceEventCache()
 #End Region
 
@@ -34,7 +24,7 @@ Public Class Logger
     Private LogFile As FileLogTraceListener
     Private L_CurrentLogData As String
     Private LastEventsList As New List(Of Object)
-    Private _DateTimeFormatInfo As DateTimeFormatInfo = DEFAULT_DATETIMEFORMAT
+    Private _DateTimeFormatInfo As DateTimeFormatInfo = DateTimeFormatInfo.CurrentInfo
 
 #End Region
 
@@ -101,7 +91,7 @@ Public Class Logger
             If IsWritingToFile Then
                 Return LogFile.FullLogFileName
             Else
-                Return DEFAULT_LOCATION
+                Return String.Empty
             End If
         End Get
     End Property
@@ -136,7 +126,7 @@ Public Class Logger
             .Append = True,
             .AutoFlush = True,
             .LogFileCreationSchedule = LOG_FILE_CREATION_SCHEDULE,
-            .CustomLocation = If(baseDataFolder Is Nothing, DEFAULT_LOCATION, baseDataFolder),
+            .CustomLocation = If(baseDataFolder Is Nothing, DataDirectory, baseDataFolder),
             .Location = LogFileLocation.Custom
         }
 
