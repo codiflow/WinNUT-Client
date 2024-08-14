@@ -62,6 +62,19 @@ Namespace My
                 Settings.Save()
             End If
 
+            ' Determine if we just upgraded from the MSI installation, and should uninstall it.
+            If Settings.IsMSIToCOUpgradeInProgress Then
+                Dim procStartInfo As New ProcessStartInfo() With {
+                    .FileName = "msiexec",
+                    .Arguments = "/qb /x {C76F13E3-5B41-4295-9FAF-0927C8D81190}",
+                    .Verb = "runas"}
+                Process.Start(procStartInfo)
+                LogFile.LogTracing("ClickOnce installation upgrade was in process. Attempted to launch MSI uninstaller.",
+                        LogLvl.LOG_NOTICE, Me)
+                Settings.IsMSIToCOUpgradeInProgress = False
+                Settings.Save()
+            End If
+
             LogFile.LogTracing("MyApplication_Startup complete.", LogLvl.LOG_DEBUG, Me)
         End Sub
 
