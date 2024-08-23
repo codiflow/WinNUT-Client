@@ -618,18 +618,6 @@ Public Class WinNUT
         HasFocus = False
     End Sub
 
-    Public Shared Sub Event_ChangeStatus() Handles Me.On_Battery, Me.On_Line,
-        UPS_Device.Lost_Connect, UPS_Device.Connected, UPS_Device.Disconnected
-
-        WinNUT.NotifyIcon.BalloonTipText = WinNUT.NotifyIcon.Text
-        If WinNUT.AllowToast And WinNUT.NotifyIcon.BalloonTipText <> "" Then
-            Dim Toastparts As String() = WinNUT.NotifyIcon.BalloonTipText.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
-            WinNUT.ToastPopup.SendToast(Toastparts)
-        ElseIf WinNUT.NotifyIcon.Visible = True And WinNUT.NotifyIcon.BalloonTipText <> "" Then
-            WinNUT.NotifyIcon.ShowBalloonTip(10000)
-        End If
-    End Sub
-
     Private Sub Update_UPS_Data() Handles UPS_Device.DataUpdated
         LogFile.LogTracing("Updating UPS data for Form.", LogLvl.LOG_DEBUG, Me)
 
@@ -872,6 +860,18 @@ Public Class WinNUT
             NotifyIcon.Icon = GetIcon(TmpTrayIDX)
             Icon = GetIcon(TmpGuiIDX)
             LastAppIconIdx = ActualAppIconIdx
+        End If
+    End Sub
+
+    Public Shared Sub Event_ChangeStatus() Handles Me.On_Battery, Me.On_Line,
+        UPS_Device.Lost_Connect, UPS_Device.Connected, UPS_Device.Disconnected
+
+        WinNUT.NotifyIcon.BalloonTipText = WinNUT.NotifyIcon.Text
+        If WinNUT.AllowToast And WinNUT.NotifyIcon.BalloonTipText <> "" Then
+            Dim Toastparts As String() = WinNUT.NotifyIcon.BalloonTipText.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
+            WinNUT.ToastPopup.SendToast(Toastparts)
+        ElseIf WinNUT.NotifyIcon.Visible = True And WinNUT.NotifyIcon.BalloonTipText <> "" Then
+            WinNUT.NotifyIcon.ShowBalloonTip(10000)
         End If
     End Sub
 
