@@ -402,10 +402,6 @@ Public Class WinNUT
         LogFile.LogTracing("Connection to Nut Host Established", LogLvl.LOG_NOTICE, Me,
                            String.Format(StrLog.Item(AppResxStr.STR_LOG_CONNECTED),
                                          upsConf.Host, upsConf.Port))
-
-        If Not String.IsNullOrEmpty(upsConf.Login) Then
-            UPS_Device.Login()
-        End If
     End Sub
 
     Private Sub ConnectionError(sender As UPS_Device, ex As Exception) Handles UPS_Device.ConnectionError

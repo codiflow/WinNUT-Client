@@ -144,6 +144,10 @@ Public Class UPS_Device
             Update_Data.Start()
             RaiseEvent Connected(Me)
 
+            If Not String.IsNullOrEmpty(Nut_Config.Login) Then
+                Login()
+            End If
+
         Catch ex As NutException
             ' This is how we determine if we have a valid UPS name entered, among other errors.
             RaiseEvent EncounteredNUTException(Me, ex)
