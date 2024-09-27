@@ -128,6 +128,8 @@ Public Class Nut_Socket
             Query_Data("LOGOUT")
         End If
 
+        _isLoggedIn = False
+
         If WriterStream IsNot Nothing Then
             WriterStream.Dispose()
         End If

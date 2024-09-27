@@ -402,10 +402,6 @@ Public Class WinNUT
         LogFile.LogTracing("Connection to Nut Host Established", LogLvl.LOG_NOTICE, Me,
                            String.Format(StrLog.Item(AppResxStr.STR_LOG_CONNECTED),
                                          upsConf.Host, upsConf.Port))
-
-        If Not String.IsNullOrEmpty(upsConf.Login) Then
-            UPS_Device.Login()
-        End If
     End Sub
 
     Private Sub ConnectionError(sender As UPS_Device, ex As Exception) Handles UPS_Device.ConnectionError
@@ -616,18 +612,6 @@ Public Class WinNUT
         About_Gui.Activate()
         About_Gui.Visible = True
         HasFocus = False
-    End Sub
-
-    Public Shared Sub Event_ChangeStatus() Handles Me.On_Battery, Me.On_Line,
-        UPS_Device.Lost_Connect, UPS_Device.Connected, UPS_Device.Disconnected
-
-        WinNUT.NotifyIcon.BalloonTipText = WinNUT.NotifyIcon.Text
-        If WinNUT.AllowToast And WinNUT.NotifyIcon.BalloonTipText <> "" Then
-            Dim Toastparts As String() = WinNUT.NotifyIcon.BalloonTipText.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
-            WinNUT.ToastPopup.SendToast(Toastparts)
-        ElseIf WinNUT.NotifyIcon.Visible = True And WinNUT.NotifyIcon.BalloonTipText <> "" Then
-            WinNUT.NotifyIcon.ShowBalloonTip(10000)
-        End If
     End Sub
 
     Private Sub Update_UPS_Data() Handles UPS_Device.DataUpdated
@@ -872,6 +856,24 @@ Public Class WinNUT
             NotifyIcon.Icon = GetIcon(TmpTrayIDX)
             Icon = GetIcon(TmpGuiIDX)
             LastAppIconIdx = ActualAppIconIdx
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Handle Toast (Windows 10+) and/or NotifyIcon pop-ups.
+    ''' </summary>
+    Private Sub ToastNotifyIcon() Handles Me.On_Battery, Me.On_Line, UPS_Device.Lost_Connect,
+        UPS_Device.Connected, UPS_Device.Disconnected
+
+        LogFile.LogTracing("ToastNotifyIcon running.", LogLvl.LOG_DEBUG, Me)
+        NotifyIcon.BalloonTipText = NotifyIcon.Text
+        If AllowToast And NotifyIcon.BalloonTipText <> "" Then
+            Dim Toastparts As String() = NotifyIcon.BalloonTipText.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
+            LogFile.LogTracing("Sending Toast popup with text: " & NotifyIcon.BalloonTipText, LogLvl.LOG_DEBUG, Me)
+            ToastPopup.SendToast(Toastparts)
+        ElseIf NotifyIcon.Visible = True And NotifyIcon.BalloonTipText <> "" Then
+            LogFile.LogTracing("Sending NotifyIcon ballowtip: " & NotifyIcon.BalloonTipText, LogLvl.LOG_DEBUG, Me)
+            NotifyIcon.ShowBalloonTip(10000)
         End If
     End Sub
 
